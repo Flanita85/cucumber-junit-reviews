@@ -20,10 +20,10 @@ public class Hooks {
     @After  //it should come form cucumber java NOT JUNIT
     public void tearDown(Scenario scenario)  {
 
-      //  if (scenario.isFailed()){
+        if (scenario.isFailed()){
             byte[] data = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(data,"image/png", scenario.getName());
-        //}
+        }
 
 
         BrowserUtils.sleep(3);
